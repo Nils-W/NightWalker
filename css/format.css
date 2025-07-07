@@ -3,15 +3,3 @@ body {
   font-weight: 500;
   font-style: normal;
 }
-
-.dm-mono-medium {
-  font-family: "DM Mono", monospace;
-  font-weight: 500;
-  font-style: normal;
-}
-
-.dm-mono-medium-italic {
-  font-family: "DM Mono", monospace;
-  font-weight: 500;
-  font-style: italic;
-}
