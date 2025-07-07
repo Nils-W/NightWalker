@@ -9,3 +9,9 @@
   font-weight: 500;
   font-style: italic;
 }
+
+.body {
+  font-family: "DM Mono", monospace;
+  font-weight: 500;
+  font-style: normal;
+}
