@@ -2,4 +2,4 @@
 Text-based RPG
 
 
-Web game Url: https://nils-w.github.io/NightWalker/
+Web game Url: https://mereMint.github.io/NightWalker/
