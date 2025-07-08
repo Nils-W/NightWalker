@@ -1,3 +1,4 @@
+
 function load(event) {
     // Prevent the default link behavior so the page doesn't change immediately.
     event.preventDefault();
