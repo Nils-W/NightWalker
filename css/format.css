@@ -2,4 +2,22 @@ body {
   font-family: "DM Mono", monospace;
   font-weight: 500;
   font-style: normal;
+  background-size: cover;
+  background-position: center;
+  background-color: black;
+  background-repeat: no-repeat;
+  color: white;
+}
+
+button {
+  background-color: black;
+  color: white;
+  border: 2px solid white;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+button:hover {
+  background-color: rgb(37, 37, 37);
+  color: rgb(255, 255, 255);
 }

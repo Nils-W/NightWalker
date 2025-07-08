@@ -1,0 +1,38 @@
+/* File: css/index.css */
+.index{
+    align-self: center;
+    text-align: center;
+}
+p {
+    font-family: 'DM Mono', monospace;
+    font-size: 1.2em;
+    color: #333;
+    margin-top: 25em;
+}
+
+h1 {
+    font-family: 'DM Mono', monospace;
+    font-size: 8em;
+    color: #fff;
+    margin-top: 2em;
+}
+body{
+    background-image: url("../assets/background.png");
+}
+
+#page-transition-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+    opacity: 0;
+    pointer-events: none; /* Allows clicks to go through when invisible */
+    z-index: 9999; /* Ensures it's on top of all other content */
+    transition: opacity 0.5s ease-in-out;
+}
+
+#page-transition-overlay.fade-in {
+    opacity: 1;
+}
