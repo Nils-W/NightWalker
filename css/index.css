@@ -18,6 +18,11 @@ h1 {
 }
 body{
     background-image: url("../assets/background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-color: black;
 }
 
 #page-transition-overlay {
