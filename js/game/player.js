@@ -5,6 +5,7 @@ let player = {
     maxmana : 10,
     attack: 10,
     defense: 10,
+    speed: 1,
     xp: 0,
     maxxp: 100,
     level: 1,

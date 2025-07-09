@@ -1,0 +1,10 @@
+{
+    "name": "Bat",
+    "level": 1,
+    "health": 10,
+    "attack": 2,
+    "defense": 1,
+    "speed": 3,
+    "image": "../assets/enemy/img/bat.png",
+    "world": "Overworld"
+}

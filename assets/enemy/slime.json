@@ -1,0 +1,10 @@
+{
+    "name": "Slime",
+    "level": 1,
+    "health": 10,
+    "attack": 2,
+    "defense": 1,
+    "speed": 1,
+    "image": "../assets/enemy/img/slime.png",
+    "world": "Overworld"
+}
