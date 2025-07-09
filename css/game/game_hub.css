@@ -12,6 +12,7 @@ body{
     height: 100vh; /* Make container fill the viewport height */
     box-sizing: border-box;
     gap: 20px; /* Add space between the player and game data columns */
+    image-rendering: pixelated;
 }
 
 .PlayerData, .gameData {
