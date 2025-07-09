@@ -7,7 +7,7 @@
     <script src="../js/game/player.js"></script>
     <script src="../js/game/hub.js"></script>
     <link rel="stylesheet" href="../css/format.css">
-    <link rel="stylesheet" href="../css/game/game_hub.css">
+    <link rel="stylesheet" href="../css/game/fight.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
@@ -24,10 +24,10 @@
                     <p id="xp">XP: 0/100</p>
                 </div>
                 <div class="action">
-                    <button id="action1" onclick="walk()">Walk</button>
-                    <button id="action2">Shop</button>
-                    <button id="action3">Items</button>
-                    <button id="action4">Glyph</button>
+                    <button id="attack1" onclick="attack1">Att1</button>
+                    <button id="attack2">Att2</button>
+                    <button id="action3">Att2</button>
+                    <button id="action4">Att2</button>
                 </div>
             </div>
             <div class="build card">
@@ -40,10 +40,12 @@
         </div>
         <div class="gameData">
             <div class="content card">
-                <img id="energy" src="../assets/game/Energy_100.png" alt="Energy" title="Energy">
-                <img id="world" src="../assets/game/Overworld.png" alt="World type">
-                <p id="type">Type: Overworld</p>
-                <p id="steps">Steps: 0</p>
+                <p id="enemyname">EnemyName</p>
+                <img id="enemy" src="../assets/enemy/slime.png" alt="Enemy">
+                <img id="enemy_health" src="../assets/healthbar/health_10.png" alt="Enemy Health">
+                <div class="enemy_stats">
+                    <p id="enemylevel">Level: 1</p>
+                </div>
             </div>
             <div id="output" class="output card">
                 
