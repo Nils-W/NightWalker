@@ -1,0 +1,35 @@
+{
+    "name" : "Wanderer",
+    "energy" : 100,
+    "maxenergy" : 100,
+    "level" : 1,
+    "xp" : 0,
+    "maxxp" : 100,
+    "health" : 20,
+    "maxhealth" : 20,
+    "mana" : 10,
+    "maxmana" : 10,
+    "attack" : 5,
+    "defense" : 1,
+    "speed" : 1,
+    "playerCard" : "../assets/playercards/standard.png",
+    "currentworld" : "Overworld",
+    "steps" : 0,
+    "resistance" : "none",
+    "weakness" : "physical",
+    "damagetype" : "physical",
+    "special" : [
+        {
+            "name" : "Hard Strike",
+            "description" : "A hard strike",
+            "damage" : 10,
+            "damagetype" : "physical",
+            "manacost" : 5
+        }
+    ],
+    "blocked": "flase",
+    "money": 0,
+    "items" : [],
+    "itemsinuse" : [],
+    "glypes" : []
+}

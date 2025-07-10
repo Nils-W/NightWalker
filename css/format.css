@@ -16,6 +16,7 @@ button {
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
+  font-family: "DM Mono", monospace"
 }
 button:hover {
   background-color: rgba(87, 87, 87, 0.322);

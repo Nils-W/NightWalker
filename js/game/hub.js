@@ -9,8 +9,8 @@ function getDefaultPlayer() {
         health: 20,
         mana : 10,
         maxmana : 10,
-        attack: 10,
-        defense: 10,
+        attack: 5,
+        defense: 1,
         speed: 1,
         xp: 0,
         maxxp: 100,
@@ -55,6 +55,7 @@ function loadplayerdata() {
 
 window.onload = function() {
     loadplayerdata();
+    player.blocked = false;
     console.log("Player data loaded:", player);
 };
 
@@ -111,6 +112,8 @@ function updatePlayerUI() {
     document.getElementById("playername").innerText = player.name;
     document.getElementById("xp").innerText = `XP: ${player.xp}/${player.maxxp}`;
     document.getElementById("playerlevel").innerText = `Level: ${player.level}`;
+    document.getElementById("healthbar").title = `Health: ${player.health}/${player.maxhealth}`;
+    document.getElementById("playerimg").title = `Money: ${player.money}, Mana: ${player.mana}/${player.maxmana}, Attack: ${player.attack}, Defense: ${player.defense}, Speed: ${player.speed}`
 }
 function updateGameData() {
     document.getElementById("type").innerText = `Type: ${player.currentworld}`;
@@ -135,7 +138,30 @@ setInterval(() => {
     } else {
         document.getElementById("energy").src = "../assets/game/energy_0.png"; // No energy
     }
-    
+
+    if (player.health > player.maxhealth/10*9) {
+        document.getElementById("healthbar").src = "../assets/healthbar/health_10.png"; // Full health
+    } else if (player.health > player.maxhealth/10*8) {
+        document.getElementById("healthbar").src = "../assets/healthbar/health_9.png"; // 90% health
+    } else if (player.health > player.maxhealth/10*7) {
+        document.getElementById("healthbar").src = "../assets/healthbar/health_8.png"; // 80% health
+    } else if (player.health > player.maxhealth/10*6) {
+        document.getElementById("healthbar").src = "../assets/healthbar/health_7.png"; // 70% health
+    } else if (player.health > player.maxhealth/10*5) {
+        document.getElementById("healthbar").src = "../assets/healthbar/health_6.png"; // 60% health
+    } else if (player.health > player.maxhealth/10*4) {
+        document.getElementById("healthbar").src = "../assets/healthbar/health_5.png"; // 50% health
+    } else if (player.health > player.maxhealth/10*3) {
+        document.getElementById("healthbar").src = "../assets/healthbar/health_4.png"; // 40% health
+    } else if (player.health > player.maxhealth/10*2) {
+        document.getElementById("healthbar").src = "../assets/healthbar/health_3.png"; // 30% health
+    } else if (player.health > player.maxhealth/10) {
+        document.getElementById("healthbar").src = "../assets/healthbar/health_2.png"; // 20% health
+    } else if (player.health > 0){
+        document.getElementById("healthbar").src = "../assets/healthbar/health_1.png"; // 10% health
+    }else {
+        document.getElementById("healthbar").src = "../assets/healthbar/health_0.png"; // No health
+    }
 }, 100); // Update every 100 ms
 
 setInterval(() => {
@@ -144,6 +170,16 @@ setInterval(() => {
     }
     
 }, 10000); // Regain energy every ten seconds
+
+setInterval(() => {
+if (player.mana < player.maxmana) {
+        player.mana += 1; 
+    }
+if (player.health < player.maxhealth) {
+    player.health += 1; 
+}
+}, 20000); // Regain mana and health every twenty seconds
+
 
 
 function showLevelUpAnimation() {

@@ -1,112 +1,257 @@
-body{
-    margin-left: 15%;
-    margin-right: 15%;
-    overflow: hidden;
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background: #000;
+    color: white;
+    /* Temporarily hide vertical scrollbar during animation */
+    overflow-y: hidden;
 }
 
 .container {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* PlayerData and gameData are equally wide */
-    grid-template-rows: auto 1fr; /* Top row is sized by content, bottom row fills space */
-    padding: 2vh 20px; /* Add some space from the top and sides */
-    height: 100vh; /* Make container fill the viewport height */
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr;
+    padding: 2vh 5vw;
+    min-height: 100vh;
     box-sizing: border-box;
-    gap: 20px; /* Add space between the player and game data columns */
+    gap: 20px;
     image-rendering: pixelated;
 }
 
 .PlayerData, .gameData {
-    display: contents; /* Allows children to be direct grid items of .container */
+    display: contents;
 }
 
+/* --- Card Styling --- */
 .card {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    border: solid 2px white;
-    width: 100%;
-    box-sizing: border-box;
+    border: 2px solid white;
     border-radius: 10px;
     padding: 10px;
-    height: 70vh; /* Set a fixed height for the card */
-    opacity: 0; /* Start invisible for animation */
-    animation: flyInFromBottom 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    box-sizing: border-box;
+    background-color: #000;
+    opacity: 0;
+    /* Updated animation properties for smoothness */
+    animation: flyInFromBottom 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+    overflow: hidden;
+    will-change: transform, opacity, filter;
+    backface-visibility: hidden;
+    perspective: 1000px;
 }
 
+/* Add a class to remove overflow-y from body after animation completes */
+body.animation-complete {
+    overflow-y: auto;
+}
+
+/* --- Player Card --- */
 .playerCard {
     grid-column: 1;
     grid-row: 1;
     animation-delay: 0.1s;
 }
-.build {
-    grid-column: 1;
-    grid-row: 2;
-    flex-direction: row;
-    height: 50%;
-    justify-content: center; /* Center the build items within the box */
-    animation-delay: 0.3s;
 
-    height: 20vh;
-}
-.build img {
-    width: 100px;
-    height: 100px;
-    gap: 10px;
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
 #playerimg, #enemy {
-    width: 240px;
-    height: 320px;
+    width: 100%;
+    max-width: 240px;
+    height: auto;
+    object-fit: contain;
     margin-top: 10px;
-    
 }
-#healthbar,#enemy_health {
-    width: 320px;
+
+#healthbar, #enemy_health {
+    width: 90%;
+    max-width: 320px;
     height: 64px;
     margin-top: 5vh;
 }
+
 .playerCard p {
     font-size: 1.5em;
     margin: 10px 0;
 }
-.action{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    width: 100%;
-    margin-top: auto; /* Push to the bottom of the flex container */
+
+/* --- Build Box --- */
+.build {
+    grid-column: 1;
+    grid-row: 2;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    animation-delay: 0.3s;
+    height: 20vh;
+    overflow: hidden;
+    padding: 2px 5px;
+    border: 2px solid white;
+    border-radius: 10px;
+    background-color: #000;
+    flex-wrap: wrap;
+    gap: 8px;
 }
 
+.build img {
+    width: 100px;
+    height: 100px;
+    image-rendering: pixelated;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+/* --- Game Content --- */
 .content {
     grid-column: 2;
     grid-row: 1;
     animation-delay: 0.2s;
 }
+
 .content p {
     font-size: 1.5em;
     margin: 10px 0;
 }
 
+/* --- Output Box --- */
 .output {
     grid-column: 2;
     grid-row: 2;
     animation-delay: 0.4s;
     width: 100%;
     height: 20vh;
+    overflow-y: auto;
+    background-color: #000;
+    padding: 10px;
+    border: 2px solid white;
+    border-radius: 10px;
 }
 
-/* --- Animations --- */
+/* --- Actions (buttons in grid) --- */
+.action {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    width: 100%;
+    margin-top: auto;
+}
+
+/* --- Animation --- */
 @keyframes flyInFromBottom {
     from {
         opacity: 0;
-        transform: translateY(50vh);
+        /* Use translate3d for GPU acceleration */
+        transform: translate3d(0, 40px, 0) scale(0.95);
+        filter: blur(2px); /* Subtle blur for smoother start */
     }
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform: translate3d(0, 0, 0) scale(1);
+        filter: blur(0);
+    }
+}
+
+/* --- Responsive Design for Smaller Desktop Screens --- */
+@media (max-width: 1200px) {
+    .build img {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .build img {
+        width: 70px;
+        height: 70px;
+    }
+}
+
+/* --- Mobile Responsive Fixes --- */
+@media (max-width: 900px) {
+    body {
+        overflow-y: auto;
+    }
+
+    .container {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto auto;
+        min-height: 100vh;
+        height: auto;
+        padding: 1vh 3vw;
+        gap: 15px;
+    }
+
+    .playerCard {
+        grid-row: 1;
+        grid-column: 1;
+    }
+
+    .build {
+        grid-row: 2;
+        grid-column: 1;
+        height: 18vh;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 5px;
+    }
+
+    .content {
+        grid-row: 3;
+        grid-column: 1;
+    }
+
+    .output {
+        grid-row: 4;
+        grid-column: 1;
+        height: 18vh;
+    }
+
+    .card {
+        height: auto;
+    }
+
+    .build img {
+        width: 60px;
+        height: 60px;
+        margin: 3px;
+    }
+
+    #playerimg, #enemy {
+        max-width: 180px;
+    }
+
+    #healthbar, #enemy_health {
+        height: 48px;
+        margin-top: 3vh;
+    }
+
+    .action {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 1vh 2vw;
+        gap: 10px;
+    }
+
+    .build {
+        height: 15vh;
+    }
+
+    .output {
+        height: 15vh;
+    }
+
+    .build img {
+        width: 50px;
+        height: 50px;
+        margin: 2px;
+    }
+
+    .content p, .playerCard p {
+        font-size: 1.2em;
     }
 }
