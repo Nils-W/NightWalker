@@ -12,15 +12,6 @@ function load(event) {
     // Add the 'fade-in' class to the overlay to trigger the CSS transition.
     overlay.classList.add('fade-in');
 
-    // Player Loading shit here:
-
-
-
-
-
-
-    
-
     // Wait for the animation to finish (500ms), then navigate to the new page.
     setTimeout(() => {
         window.location.href = destination;

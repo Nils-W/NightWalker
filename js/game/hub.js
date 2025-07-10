@@ -61,7 +61,6 @@ function updateGameData() {
 // Interval for updates
 
 setInterval(() => {
-    saveplayerdata();
     updatePlayerUI();
     updateGameData();
     if (player.energy > player.maxenergy/4*3) {

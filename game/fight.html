@@ -21,13 +21,13 @@
                 <img id="healthbar" src="../assets/healthbar/health_10.png" alt="Healthbar">
                 <div class="stats">
                     <p id="playerlevel">Level: 1</p>
-                    <p id="xp">XP: 0/100</p>
+                    <p id="mana">Mana: 10/10</p>
                 </div>
                 <div class="action">
-                    <button id="attack1" onclick="attack1">Att1</button>
-                    <button id="attack2">Att2</button>
-                    <button id="action3">Att2</button>
-                    <button id="action4">Att2</button>
+                    <button id="attack" onclick="attack(1)">attack</button>
+                    <button id="dodge" onclick="attack(2)">dodge</button>
+                    <button id="special" onclick="attack(3)">special</button>
+                    <button id="retreat" onclick="attack(4)">retreat</button>
                 </div>
             </div>
             <div class="build card">
@@ -45,6 +45,7 @@
                 <img id="enemy_health" src="../assets/healthbar/health_10.png" alt="Enemy Health">
                 <div class="enemy_stats">
                     <p id="enemylevel">Level: 1</p>
+                    <p id="enemyspecial">none</p>
                 </div>
             </div>
             <div id="output" class="output card">

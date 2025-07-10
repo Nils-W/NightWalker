@@ -3,8 +3,19 @@
     "level": 1,
     "health": 10,
     "attack": 2,
-    "defense": 1,
+    "defense": 3,
     "speed": 1,
     "image": "../assets/enemy/img/slime.png",
-    "world": "Overworld"
+    "world": "Overworld",
+    "resistance": "none",
+    "weakness": "physical",
+    "damagetype": "physical",
+    "special": [
+        {
+            "name": "Slime Splash",
+            "description": "A gooey splash of slime",
+            "damage": 5,
+            "damagetype": "physical"
+        }
+    ]
 }

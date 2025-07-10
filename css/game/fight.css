@@ -23,6 +23,7 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
     border: solid 2px white;
     width: 100%;
     box-sizing: border-box;
@@ -49,8 +50,8 @@ body{
     height: 20vh;
 }
 .build img {
-    width: 160px;
-    height: 160px;
+    width: 100px;
+    height: 100px;
     gap: 10px;
     margin-left: 10px;
     margin-right: 10px;
@@ -58,15 +59,15 @@ body{
     margin-bottom: 10px;
 }
 #playerimg, #enemy {
-    width: 320px;
-    height: 420px;
+    width: 240px;
+    height: 320px;
     margin-top: 10px;
     
 }
 #healthbar,#enemy_health {
     width: 320px;
     height: 64px;
-    margin-top: 10vh;
+    margin-top: 5vh;
 }
 .playerCard p {
     font-size: 1.5em;

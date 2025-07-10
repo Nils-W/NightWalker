@@ -1,24 +1,42 @@
-let player = {
-    name: "Wanderer",
-    health: 100,
-    mana : 10,
-    maxmana : 10,
-    attack: 10,
-    defense: 10,
-    speed: 1,
-    xp: 0,
-    maxxp: 100,
-    level: 1,
-    glyphs: [],
-    steps: 0,
-    currentworld: "Overworld",
-    money: 0,
-    items: [],
-    energy : 200,
-    maxenergy : 200,
-    maxhealth: 100,
-    blocked: false,
-};
+window.addEventListener("beforeunload", saveplayerdata);
+
+
+let player = {}; // Just an empty object
+function getDefaultPlayer() {
+    return {
+        name: "Wanderer",
+        health: 20,
+        mana : 10,
+        maxmana : 10,
+        attack: 10,
+        defense: 10,
+        speed: 1,
+        xp: 0,
+        maxxp: 100,
+        level: 1,
+        glyphs: [],
+        steps: 0,
+        currentworld: "Overworld",
+        money: 0,
+        items: [],
+        itemsInUse: [],
+        energy : 200,
+        maxenergy : 200,
+        maxhealth: 20,
+        blocked: false,
+        weakness: "none",
+        resistance: "none",
+        damagetype: "physical",
+        special: {
+            name: "Hard Strike",
+            description: "Full power attack",
+            damage: 10,
+            dmagametype: "physical",
+            manaCost: 5
+        },
+    };
+}
+
 
 function saveplayerdata() {
     localStorage.setItem("playerData", JSON.stringify(player));
@@ -26,15 +44,17 @@ function saveplayerdata() {
 function loadplayerdata() {
     const data = localStorage.getItem("playerData");
     if (data) {
-        player = JSON.parse(data);
+        Object.assign(player, getDefaultPlayer(), JSON.parse(data)); // merge with defaults for safety
     } else {
-        saveplayerdata();
+        Object.assign(player, getDefaultPlayer()); // brand new player
+        console.warn("No player data found. Using defaults.");
     }
 }
 
+
 window.onload = function() {
-    localStorage.removeItem("playerData"); // Clear player data on load for testing
     loadplayerdata();
+    console.log("Player data loaded:", player);
 };
 
 function showLevelUpAnimation() {
@@ -75,7 +95,7 @@ function checkLevelUp() {
 
 setInterval(() => {
     saveplayerdata();
-}, 1000); // Save player data every second
+}, 10); // Save player data every second
 
 
 setInterval(() => {

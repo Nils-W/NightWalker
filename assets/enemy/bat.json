@@ -6,5 +6,16 @@
     "defense": 1,
     "speed": 3,
     "image": "../assets/enemy/img/bat.png",
-    "world": "Overworld"
+    "world": "Overworld",
+    "resistance": "darkness",
+    "weakness": "light",
+    "damagetype": "physical",
+    "special": [
+        {
+            "name": "Sonic Screech",
+            "description": "A high-pitched screech",
+            "damage": 10,
+            "damagetype": "physical"
+        }
+    ]
 }
