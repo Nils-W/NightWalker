@@ -15,7 +15,14 @@
             "name": "Slime Splash",
             "description": "A gooey splash of slime",
             "damage": 5,
-            "damagetype": "physical"
+            "damagetype": "physical",
+            "usage": 0.2 
+        }
+    ],
+    "rewards": [
+        {
+            "money" : 5,
+            "xp" : 5
         }
     ]
 }

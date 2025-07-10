@@ -15,7 +15,14 @@
             "name": "Sonic Screech",
             "description": "A high-pitched screech",
             "damage": 10,
-            "damagetype": "physical"
+            "damagetype": "physical",
+            "usage": 0.4
+        }
+    ],
+    "rewards": [
+        {
+            "money" : 10,
+            "xp" : 10
         }
     ]
 }

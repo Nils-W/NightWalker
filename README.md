@@ -12,8 +12,7 @@ Web game Url: https://mereMint.github.io/NightWalker/
 ------------------------------------------------------
 
 **TO DO:**
-- fix saves across pages
-- attack() in fight.js
+- fight pauses for readability and so that the player knows what's going on
 - shop
 - glyphes / more glyphes
 - items
